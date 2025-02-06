@@ -1,0 +1,14 @@
+FROM eclipse-temurin:21-jre
+
+COPY ./target/lraknic20_vjezba_07_dz_2_servisi-1.0.0-jar-with-dependencies.jar /usr/app/
+COPY ./NWTiS_REST_1.txt /usr/app/
+COPY ./NWTiS_REST_K.txt /usr/app/
+COPY ./NWTiS_REST_R.txt /usr/app/
+COPY ./NWTiS_REST_S.txt /usr/app/
+COPY ./NWTiS_REST_V.txt /usr/app/
+
+WORKDIR /usr/app
+
+EXPOSE 8080
+
+CMD java -jar lraknic20_vjezba_07_dz_2_servisi-1.0.0-jar-with-dependencies.jar

@@ -1,0 +1,20 @@
+cd /opt/hsqldb-2.7.2/hsqldb/data
+sudo java -classpath ../lib/hsqldb.jar org.hsqldb.server.Server --database.0 file:nwtis_2 --dbname.0 nwtis_2 --port 9001
+
+sudo java -Dfile.encoding=UTF-8 -cp /opt/h2/bin/h2-2.2.224.jar org.h2.tools.Server -tcp -tcpAllowOthers -webAllowOthers -baseDir /opt/database -ifNotExists
+
+java -jar target/lraknic20_vjezba_07_dz_2_servisi-1.0.0-jar-with-dependencies.jar
+
+curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{"id": "1", "vrijemePocetak": "1711348009", "vrijemeKraj": "1711368009", "brzina": "21.767", "gpsSirina": "46.286608", "gpsDuzina": "16.353131", "gpsSirinaRadar": "46.286602", "gpsDuzinaRadar": "16.353136"}' "http://localhost:9080/nwtis/v1/api/kazne"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/kazne"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/kazne/1"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/kazne/2"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/kazne?od=1711368000&do=1711369000"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/kazne/vozilo/1"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/kazne/vozilo/1?od=1711368000&do=1711369000"
+curl -I -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/kazne"
+
+curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" -d '{"id": "1", "broj": "101", "vrijeme": "1708073749078", "brzina": "0.02", "snaga": "0.8086", "struja": "0.02", "visina": "214.2", "gpsBrzina": "1.337297", "tempVozila": "19", "postotakBaterija": "93", "naponBaterija": "40.43", "kapacitetBaterija": "7314", "tempBaterija": "20", "preostaloKm": "27.9", "ukupnoKm": "816.458", "gpsSirina": "46.286644", "gpsDuzina": "16.35285"}' "http://localhost:9080/nwtis/v1/api/vozila"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/vozila?od=1708073749077&do=1708073749079"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/vozila/vozilo/1"
+curl -X GET -H "Accept: application/json" "http://localhost:9080/nwtis/v1/api/vozila/vozilo/1?od=1708073749077&do=1708073749079"

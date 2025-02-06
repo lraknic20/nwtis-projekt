@@ -1,0 +1,6 @@
+#NWTiS 2024.
+#Thu Mar 07 10:23:41 CET 2024
+mreznaVrataRadara=8000
+mreznaVrataVozila=8001
+mreznaVrataNadzora=8002
+maksVozila=5
